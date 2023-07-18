@@ -14,7 +14,7 @@ const baseUrl = "http://localhost:8000/";
       <CardActionArea>
         <CardMedia
           component="img"
-          height="170"
+          height="250"
           image={baseUrl+product.imageUrl}
           alt="green iguana"
         />

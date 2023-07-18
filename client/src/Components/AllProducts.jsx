@@ -33,17 +33,21 @@ export default function AllProducts() {
   return (
     <div style={{display:"flex",}}>
         <br />
-        
+        {
+            product[0]==null ?
+            <h5>No products found</h5>
+            :
+            <Box sx={{ flexGrow: 1,margin:4  }}>
+                <Grid container spacing={{ xs: 1, md: 3 }} columns={{ xs: 1, sm: 8, md: 12 }}>
+                    {product.map((data, index) => (
+                    <Grid xs={1} sm={4} md={4} key={index}>
+                        <ProductCard product={data}/> 
+                    </Grid>
+                    ))}
+                </Grid>
+                </Box>
+        }
 
-<Box sx={{ flexGrow: 1,margin:4  }}>
-      <Grid container spacing={{ xs: 1, md: 3 }} columns={{ xs: 1, sm: 8, md: 12 }}>
-        {product.map((data, index) => (
-          <Grid xs={1} sm={4} md={4} key={index}>
-             <ProductCard product={data}/> 
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
 
 
     </div>
