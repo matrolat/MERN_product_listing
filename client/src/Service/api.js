@@ -2,8 +2,8 @@ import axios from 'axios';
 
 
 
+const URL ="https://mern-product-listing.onrender.com";
 export const addproducts = async (data)=>{
-    const URL ="http://localhost:8000";
 
     const formdata = new FormData();
     formdata.append('title',data.title);
@@ -25,7 +25,7 @@ export const addproducts = async (data)=>{
     }
 }
 export const updateProduct = async (data,id)=>{
-    const URL ="http://localhost:8000";
+    // const URL ="http://localhost:8000";
 
     console.log("data");
     console.log(data);
@@ -47,7 +47,7 @@ export const updateProduct = async (data,id)=>{
     }
 }
 export const deleteProduct = async (id)=>{
-    const URL ="http://localhost:8000";
+    // const URL ="http://localhost:8000";
     try{
        return await axios.post(`${URL}/deleteproducts/${id}`,{
         headers: {
@@ -63,7 +63,7 @@ export const deleteProduct = async (id)=>{
 export const getProductById = async (id)=>{
     try{
         console.log("success");
-        return await axios.get(`http://localhost:8000/getproduct/${id}`);
+        return await axios.get(`https://mern-product-listing.onrender.com/getproduct/${id}`);
     }
     catch(error){
          console.log("fail");
@@ -75,7 +75,7 @@ export const getProducts = async ()=>{
     // const URL ="http://localhost:4000";
 
     try{
-       return await axios.get(`http://localhost:8000/products`);
+       return await axios.get(`https://mern-product-listing.onrender.com/products`);
     }
     catch(error){
         console.log(" Error in addProduct API : "+error);

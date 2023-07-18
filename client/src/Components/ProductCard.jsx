@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { deleteProduct } from '../Service/api';
 
 export default function ProductCard({product}) {
-const baseUrl = "http://localhost:8000/";
+const baseUrl = "https://mern-product-listing.onrender.com/";
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>

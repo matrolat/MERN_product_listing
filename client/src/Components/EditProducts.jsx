@@ -30,7 +30,7 @@ export const EditProducts = () => {
 
     const navigate = useNavigate();
 
-    const baseUrl = "http://localhost:8000/";
+    const baseUrl = "https://mern-product-listing.onrender.com/";
     const Default = {
         title:'',
         price:'',
