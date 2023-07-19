@@ -10,15 +10,27 @@ import ProductCard from './ProductCard';
 export default function AllProducts() {
     // let products = [];
     const [product, setProd] = React.useState([]);
+    const [del, setDel] = React.useState(false);
+
+    function toggleDel()
+    {
+        console.log("toggle");
+        setDel(true);
+        window.location.reload(false);
+    }
+
     useEffect(() => {
         let prod = getProducts().then(
             (res) =>{
 
-                console.log(res.data);
-                setProd(res.data);
+                console.log(res.data.length);
+                // if(res.data.legnth != prod.length)
+                // {
+                    setProd(res.data);
+                // }
             }
         );
-    }, [product]);
+    }, []);
 
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -41,7 +53,7 @@ export default function AllProducts() {
                 <Grid container spacing={{ xs: 1, md: 3 }} columns={{ xs: 1, sm: 8, md: 12 }}>
                     {product.map((data, index) => (
                     <Grid xs={1} sm={4} md={4} key={index}>
-                        <ProductCard product={data}/> 
+                        <ProductCard toggleDel={toggleDel} product={data}/> 
                     </Grid>
                     ))}
                 </Grid>

@@ -7,8 +7,13 @@ import { CardActionArea,Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { deleteProduct } from '../Service/api';
 
-export default function ProductCard({product}) {
+export default function ProductCard(props) {
+  const {product} = props;
 const baseUrl = "https://mern-product-listing.onrender.com/";
+const handleDel=async()=>{
+ await deleteProduct(product._id);
+ props.toggleDel();
+}
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -31,7 +36,7 @@ const baseUrl = "https://mern-product-listing.onrender.com/";
           <div style={{display:"flex",justifyContent:"space-around",marginTop:20}}>
 
         <Button variant="contained" component={Link} to={`/editproducts/${product._id}`} style={{minWidth:100,backgroundColor:"#4BB543"}}>Edit</Button>
-        <Button variant="contained" onClick={(e)=>{ deleteProduct(product._id) }} style={{minWidth:100,backgroundColor:"#D11A2A"}}>Delete</Button>
+        <Button variant="contained" onClick={handleDel} style={{minWidth:100,backgroundColor:"#D11A2A"}}>Delete</Button>
           </div>
         </CardContent>
       </CardActionArea>
